@@ -1,0 +1,11 @@
+<h2>Cart</h2>
+
+<ng-container *ngIf="products.length > 0; else isEmpty">
+    <ul>
+      <li *ngFor="let product of products; trackBy: trackByFn">{{ product.name }}</li>
+    </ul>
+</ng-container>
+
+<ng-template #isEmpty>
+  <p>Your cart is empty</p>
+</ng-template>
