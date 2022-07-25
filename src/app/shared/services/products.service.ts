@@ -35,6 +35,16 @@ export class ProductsService {
 
   constructor() { }
 
+  get totalQuantity(): number {
+    return this.products.length;
+  }
+
+  get totalCost() {
+    return this.products.reduce((previous, current) => {
+      return previous + current.price
+    }, 0);
+  }
+
   getProducts(): Product[] {
     return this.products;
   }
