@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from "../../shared/services";
-import {Product} from "../../shared/models/interfaces";
+import { CartService } from "../../shared/services";
 
 @Component({
   selector: 'app-product-list',
@@ -8,15 +7,13 @@ import {Product} from "../../shared/models/interfaces";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = [];
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.getProducts();
   }
 
-  getProducts(): void {
-    this.products = this.productsService.getProducts();
+  addItem(newItemId: string) {
+    this.cartService.addProducts(newItemId);
   }
 }

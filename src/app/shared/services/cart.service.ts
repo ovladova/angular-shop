@@ -38,4 +38,8 @@ export class CartService {
   getProducts(): Product[] {
     return this.products;
   }
+
+  addProducts(id: string): void {
+    console.log(id);
+  }
 }

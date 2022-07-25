@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Product} from "../../shared/models/interfaces";
+import {ProductsService} from "../../shared/services";
 
 @Component({
   selector: 'app-product',
@@ -6,14 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  @Output() addToCartEvent = new EventEmitter<string>();
+  products: Product[] = [];
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
-  onAddToCart(): void {
-    console.log('Success!')
+  getProducts(): void {
+    this.products = this.productsService.getProducts();
+  }
+
+  onAddToCart(id: string): void {
+    this.addToCartEvent.emit(id);
   }
 
 }
