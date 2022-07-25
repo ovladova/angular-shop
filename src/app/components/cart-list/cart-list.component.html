@@ -4,6 +4,8 @@
     <ul>
       <li *ngFor="let product of products; trackBy: trackByFn">{{ product.name }}</li>
     </ul>
+  <p>Total cost: {{ getTotalCost() }}</p>
+  <p>Quantity: {{ getTotalQuantity() }}</p>
 </ng-container>
 
 <ng-template #isEmpty>

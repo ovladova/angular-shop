@@ -16,6 +16,14 @@ export class CartListComponent implements OnInit {
     this.getProducts();
   }
 
+  getTotalCost() {
+    return this.cartService.totalCost;
+  }
+
+  getTotalQuantity() {
+    return this.cartService.totalQuantity;
+  }
+
   getProducts(): void {
     this.products = this.cartService.getProducts();
   }
