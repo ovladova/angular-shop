@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Product} from "../models/interfaces";
 import {Category} from "../models/enums";
+import {ProductsService} from "./products.service";
 
 @Injectable({
   providedIn: 'root'
@@ -33,13 +34,18 @@ export class CartService {
     }
   ]
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   getProducts(): Product[] {
     return this.products;
   }
 
   addProducts(id: string): void {
-    console.log(id);
+    const newItem = this.productsService.getProductById(id);
+    if (!newItem) {
+      return
+    }
+    this.products.push({ ...newItem });
+    console.log(this.products)
   }
 }

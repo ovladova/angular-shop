@@ -38,4 +38,8 @@ export class ProductsService {
   getProducts(): Product[] {
     return this.products;
   }
+
+  getProductById(id: string): Product | undefined {
+    return this.products.find(product => product.id === id);
+  }
 }
