@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from "../../shared/models/interfaces";
+import {Injectable} from '@angular/core';
+import {Product} from "../../shared/models/interfaces";
 import {Category} from "../../shared/models/enums";
 
-@Component({
-  selector: 'app-first',
-  templateUrl: './first.component.html',
-  styleUrls: ['./first.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class FirstComponent implements OnInit {
-  title: string = 'This is First Shop Angular component';
+export class ProductsService {
   products: Product[] = [
     {
       id: 'p2203',
@@ -38,7 +35,11 @@ export class FirstComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  getProducts(): Product[] {
+    return this.products;
   }
 
+  getProductById(id: string): Product | undefined {
+    return this.products.find(product => product.id === id);
+  }
 }

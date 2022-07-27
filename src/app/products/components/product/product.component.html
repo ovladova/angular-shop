@@ -1,0 +1,10 @@
+<ul>
+  <li class="product-wrapper" *ngFor="let product of products">
+    <p>Name: {{ product.name }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <p>Availability:  {{ product.isAvailable ? 'yes' : 'no' }}</p>
+    <button (click)="onAddToCart(product.id)"
+            [disabled]="product.isAvailable">Buy</button>
+  </li>
+</ul>

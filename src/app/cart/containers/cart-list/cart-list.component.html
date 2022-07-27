@@ -1,0 +1,13 @@
+<h2>Cart</h2>
+
+<ng-container *ngIf="products.length > 0; else isEmpty">
+  <app-cart-item [products]="products"
+                 (deleteItemEvent)="deleteCartItem($event)">
+  </app-cart-item>
+  <p>Total cost: {{ getTotalCost() }}</p>
+  <p>Quantity: {{ getTotalQuantity() }}</p>
+</ng-container>
+
+<ng-template #isEmpty>
+  <p>Your cart is empty</p>
+</ng-template>
