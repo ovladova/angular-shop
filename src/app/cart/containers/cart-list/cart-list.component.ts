@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from "../../shared/services";
-import {Product} from "../../shared/models/interfaces";
+import { CartService } from "../../../shared/services";
+import {Product} from "../../../shared/models/interfaces";
 
 @Component({
   selector: 'app-cart-list',
@@ -8,12 +8,11 @@ import {Product} from "../../shared/models/interfaces";
   styleUrls: ['./cart-list.component.css']
 })
 export class CartListComponent implements OnInit {
-  products: Product[] = [];
+  products: Product[] = this.cartService.getProducts();
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.getProducts();
   }
 
   getTotalCost() {
@@ -22,10 +21,6 @@ export class CartListComponent implements OnInit {
 
   getTotalQuantity() {
     return this.cartService.totalQuantity;
-  }
-
-  getProducts(): void {
-    this.products = this.cartService.getProducts();
   }
 
   deleteCartItem(id: string): void {

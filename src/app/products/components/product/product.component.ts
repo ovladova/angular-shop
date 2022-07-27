@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Product} from "../../shared/models/interfaces";
-import {ProductsService} from "../../shared/services";
+import {Product} from "../../../shared/models/interfaces";
+import {ProductsService} from "../../../shared/services";
 
 @Component({
   selector: 'app-product',
