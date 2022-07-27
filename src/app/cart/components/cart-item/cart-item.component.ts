@@ -9,6 +9,7 @@ import { Product } from "../../../shared/models/interfaces";
 export class CartItemComponent implements OnInit {
   @Output() deleteItemEvent = new EventEmitter<string>();
   @Input() products: Product[] = [];
+
   quantity: number = 1;
 
   constructor() { }

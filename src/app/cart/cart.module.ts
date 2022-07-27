@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {CartListComponent} from "./containers/cart-list/cart-list.component";
 import {CartItemComponent} from "./components/cart-item/cart-item.component";
 import { CartComponent } from './containers/cart/cart.component';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { CartComponent } from './containers/cart/cart.component';
     CartComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     CartComponent,
