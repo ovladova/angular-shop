@@ -1,9 +1,9 @@
 <h2>Cart</h2>
 
 <ng-container *ngIf="products.length > 0; else isEmpty">
-    <ul>
-      <li *ngFor="let product of products; trackBy: trackByFn">{{ product.name }}</li>
-    </ul>
+  <app-cart-item [products]="products"
+                 (deleteItemEvent)="deleteCartItem($event)">
+  </app-cart-item>
   <p>Total cost: {{ getTotalCost() }}</p>
   <p>Quantity: {{ getTotalQuantity() }}</p>
 </ng-container>

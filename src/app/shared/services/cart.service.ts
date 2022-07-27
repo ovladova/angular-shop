@@ -31,6 +31,9 @@ export class CartService {
       return
     }
     this.products.push({ ...newItem });
-    console.log(this.products)
+  }
+
+  deleteItem(id: string): void {
+    this.products = this.products.filter(item => item.id !== id);
   }
 }

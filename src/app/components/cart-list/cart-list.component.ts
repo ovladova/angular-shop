@@ -28,7 +28,8 @@ export class CartListComponent implements OnInit {
     this.products = this.cartService.getProducts();
   }
 
-  trackByFn(index: number, item: Product){
-    return item.id;
+  deleteCartItem(id: string): void {
+    this.cartService.deleteItem(id);
+    this.products = this.cartService.getProducts();
   }
 }

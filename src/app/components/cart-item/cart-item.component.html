@@ -1,0 +1,14 @@
+<ul>
+  <li class="product-wrapper" *ngFor="let product of products; trackBy: trackByFn">
+    <p>Name: {{ product.name }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <p>Quantity: {{ quantity }}</p>
+    <div>
+      <button (click)="onQuantityIncrease()">+</button>
+      <p>Change quantity</p>
+      <button (click)="onQuantityDecrease()">-</button>
+    </div>
+    <button (click)="onDeleteItem(product.id)">Delete</button>
+  </li>
+</ul>
