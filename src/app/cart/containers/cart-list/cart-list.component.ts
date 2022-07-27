@@ -5,7 +5,7 @@ import {Product} from "../../../shared/models/interfaces";
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.scss']
 })
 export class CartListComponent implements OnInit {
   products: Product[] = this.cartService.getProducts();
