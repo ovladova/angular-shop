@@ -23,7 +23,7 @@ export class CartListComponent implements OnInit {
     return this.cartService.totalQuantity;
   }
 
-  deleteCartItem(id: string): void {
+  onDeleteCartItem(id: string): void {
     this.cartService.deleteItem(id);
     this.products = this.cartService.getProducts();
   }

@@ -2,7 +2,7 @@
 
 <ng-container *ngIf="products.length > 0; else isEmpty">
   <app-cart-item [products]="products"
-                 (deleteItemEvent)="deleteCartItem($event)">
+                 (deleteItemEvent)="onDeleteCartItem($event)">
   </app-cart-item>
   <p>Total cost: {{ getTotalCost() }}</p>
   <p>Quantity: {{ getTotalQuantity() }}</p>

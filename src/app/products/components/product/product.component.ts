@@ -27,3 +27,5 @@ export class ProductComponent implements OnInit {
   }
 
 }
+// при такой реализации нет
+// необходимости в компонентах ProductsComponent, ProductListComponent
